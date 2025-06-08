@@ -1,0 +1,115 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Aluminium Section Work </title>
+  <script src="index.js"></script>
+
+  <!-- Add this inside your <head> tag in your HTML file -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 10px;
+  background: #f9f9f9;
+}
+h2 {
+  text-align: center;
+}
+label, button {
+  margin: 8px 4px 8px 0;
+  font-size: 1rem;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  margin-top: 10px;
+  box-shadow: 0 2px 8px #0001;
+}
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px 4px;
+  text-align: center;
+  font-size: 1rem;
+}
+th {
+  background: #f0f0f0;
+}
+input[type="number"] {
+  width: 70px;
+  padding: 4px;
+  font-size: 1rem;
+}
+@media (max-width: 600px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+  thead tr {
+    display: none;
+  }
+  tr {
+    margin-bottom: 12px;
+    border-bottom: 2px solid #eee;
+    background: #fff;
+  }
+  td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+    border: none;
+    border-bottom: 1px solid #eee;
+  }
+  td:before {
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    width: 45%;
+    white-space: nowrap;
+    text-align: left;
+    font-weight: bold;
+    content: attr(data-label);
+  }
+  input[type="number"] {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+</style>
+</head>
+<body>
+  <h2>Aluminium Fix Section Calculator</h2>
+  <label>
+    Section Width (ft): <input type="number" id="width" value="1" min="1">
+  </label>
+  <label>
+    Section Height (ft): <input type="number" id="height" value="1" min="1">
+  </label>
+  <button onclick="updateQuantities()">Update Quantities</button>
+  <br><br>
+  <table>
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Quantity</th>
+        <th>Unit</th>
+        <th>Unit Price</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody id="itemsTable"></tbody>
+    <tfoot>
+      <tr>
+        <td colspan="4"><strong>Grand Total</strong></td>
+        <td id="grandTotal"></td>
+      </tr>
+    </tfoot>
+    <!-- Add this above your <table> in your HTML file -->
+<button onclick="window.print()">Print Bill</button>
+  </table>
+  <!-- Place this next to your Update Quantities button -->
+<button onclick="calculateTotal()">Calculate Total</button>
+  <script src="index.js"></script>
+</body>
+</html>
